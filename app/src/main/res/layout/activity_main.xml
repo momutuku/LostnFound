@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.last.MainActivity"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/dashbg">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="1dp"
+        android:transitionName="logo_image"
+        android:layout_gravity="center"
+        android:contentDescription="@string/app_dsc"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WE'VE GOT YOU"
+        android:layout_gravity="center"
+        android:fontFamily="@font/almendra_sc"
+        android:transitionName="logo_text"
+        android:textSize="38sp"
+
+        />
+
+
+</LinearLayout>

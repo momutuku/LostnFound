@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "395972284381",
+    "firebase_url": "https://lostnfound-d25b8.firebaseio.com",
+    "project_id": "lostnfound-d25b8",
+    "storage_bucket": "lostnfound-d25b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395972284381:android:42088c054d64bb30aab034",
+        "android_client_info": {
+          "package_name": "com.example.last"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395972284381-9943mk99tqi7juihqf4qouand67a9pe4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.last",
+            "certificate_hash": "9e9eb39894cd74933c1ce2953267492742a39dd4"
+          }
+        },
+        {
+          "client_id": "395972284381-d7q3pb9o1ckfdcp2ksh5verbkfcguc2q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDu1Bff9u5-BHJkb0tfG-p4I06pbjP4tmw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395972284381-d7q3pb9o1ckfdcp2ksh5verbkfcguc2q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

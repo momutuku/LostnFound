@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<resources>
+
+    <string name="app_name" translatable="false">Lost And Found</string>
+
+    <string name="app_dsc" translatable="false">Logo</string>
+
+    <string name="app_slogan" translatable="false">WE GOT YOU</string>
+
+    <string name="navopen">Open Nav</string>
+
+    <string name="desc1">Choosing a good informative speech topic or informative essay topic can keep your audience entertained,your reader interested, and your own work process more enjoyable.</string>
+
+    <string name="navclose">Close Nav</string>
+
+</resources>
