@@ -4,6 +4,7 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
@@ -97,6 +98,18 @@ public class Login extends AppCompatActivity {
                 String method = "login";
                 BackgroundTask login = new BackgroundTask(Login.this);
                 login.execute(method, email, passwd);
+
+                Handler waiter = new Handler();
+                Runnable runner = new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(Login.this, Dashboard.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                };
+                waiter.postDelayed(runner,3000);
+
                 // TODO: 3/6/2020
 //                    Add Vallidation to See if login was successful
 

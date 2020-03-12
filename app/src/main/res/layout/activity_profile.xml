@@ -2,186 +2,61 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layoutp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/dashbg"
     android:fitsSystemWindows="true">
 
-
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_viewp"
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu" />
 
-    <ScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/dashbg">
+        android:layout_height="300dp">
 
-        <LinearLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/dashbg"
-            android:orientation="vertical"
-            android:padding="1dp">
+            android:layout_height="50dp"
+            android:background="#21a8e9"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/hdr" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbarp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="#21a8e9"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:navigationIcon="@drawable/hdr" />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:background="#fff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/dashbg"
-                android:paddingTop="20dp"
-                android:scrollbars="none">
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#fff"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="1dp">
-
-
-                    <!--            //Card 1-->
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:layout_width="350dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/idrv"
+            android:layout_width="391dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="30dp"
+            android:marginLeft="10dp"
+            android:paddingTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/slider" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                            <ImageView
-                                android:id="@+id/card1"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_gravity="center_horizontal"
-                                android:background="@drawable/btnbg"
-                                android:src="@drawable/profile" />
-
-                            <TextView
-                                android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="40dp"
-                                android:padding="10dp"
-                                android:text="TITLE"
-                                android:textAlignment="center"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:layout_width="300dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="30dp"
-                                android:padding="10dp"
-                                android:text="Before getting into an example, we should know what is Horizontal Scroll View. Horizontal Scrollview provides by android.widget.HorizontalScrollView class. It is used to scroll child views in a horizontal direction."
-                                android:textAlignment="center"
-                                android:textSize="24sp" />
-
-                            <Button
-                                android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="10dp"
-                                android:background="@drawable/btnbg"
-                                android:text="MORE"
-                                android:textSize="24sp" />
-
-
-                        </LinearLayout>
-                    </ScrollView>
-<!--                    MIDLINE-->
-                    <ScrollView
-                        android:layout_width="20dp"
-                        android:background="@drawable/dashbg"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:layout_width="350dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="10dp">
-
-                        </LinearLayout>
-                    </ScrollView>
-
-                    <!--            //Card 2-->
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:layout_width="350dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="10dp">
-
-
-                            <ImageView
-                                android:id="@+id/card2"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_gravity="center_horizontal"
-                                android:background="@drawable/btnbg"
-                                android:src="@drawable/profile" />
-
-                            <TextView
-                                android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="40dp"
-                                android:padding="10dp"
-                                android:text="TITLE"
-                                android:textAlignment="center"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:layout_width="300dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="30dp"
-                                android:padding="10dp"
-                                android:text="Before getting into an example, we should know what is Horizontal Scroll View. Horizontal Scrollview provides by android.widget.HorizontalScrollView class. It is used to scroll child views in a horizontal direction."
-                                android:textAlignment="center"
-                                android:textSize="24sp" />
-
-                            <Button
-                                android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="10dp"
-                                android:background="@drawable/btnbg"
-                                android:text="MORE"
-                                android:textSize="24sp" />
-
-
-                        </LinearLayout>
-                    </ScrollView>
-                </LinearLayout>
-
-
-            </HorizontalScrollView>
-        </LinearLayout>
-
-    </ScrollView>
 </androidx.drawerlayout.widget.DrawerLayout>
 
 

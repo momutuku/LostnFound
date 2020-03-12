@@ -140,7 +140,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case com.example.last.R.id.logout:
+            case com.example.last.R.id.drawer_logout:
                 globalconst.user = null;
                 globalconst.gmail = "";
                 globalconst.gltname = "";

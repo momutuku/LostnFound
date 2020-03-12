@@ -41,11 +41,14 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 
         String reg_url = "https://founditlost.000webhostapp.com/includes/register.php";
         String log_url = "https://founditlost.000webhostapp.com/includes/login.php";
-        String method = params[0];
+        final String method = params[0];
+        String response = "";
         if (method.equals("register")) {
             String name = params[1];
             String email = params[2];
             String password = params[3];
+            String phone = params[4];
+            String img = params[5];
             try {
                 URL url = new URL(reg_url);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -56,14 +59,27 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 String data = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8") + "&"
                         + URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email, "UTF-8")
                         + "&"
-                        + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+                        + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8")
+                        + "&" + URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode(phone, "UTF-8")
+                        + "&"
+                        + URLEncoder.encode("img", "UTF-8") + "=" + URLEncoder.encode(img, "UTF-8");
                 writer.write(data);
                 writer.flush();
                 writer.close();
                 os.close();
-                InputStream IS = connection.getInputStream();
-                IS.close();
-                return "DONE";
+//                Response
+                InputStream io = connection.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(io, "iso-8859-1"));
+                response = "";
+                String line = "";
+                while ((line = reader.readLine()) != null) {
+                    response += line;
+                }
+                reader.close();
+                io.close();
+                connection.disconnect();
+                final String response1 = response;
+                return response1;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -91,7 +107,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 //                    Response
                     InputStream io = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(io, "iso-8859-1"));
-                    String response = "";
+                    response = "";
                     String line = "";
                     while ((line = reader.readLine()) != null) {
                         response += line;
@@ -109,7 +125,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 
             }//If
         }//Else
-        return null;
+        return response;
     }
 
     @Override
@@ -119,10 +135,9 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(ctx, "Logged in Succesful", Toast.LENGTH_SHORT).show();
+        Log.e("result", result);
+        Toast.makeText(ctx, result, Toast.LENGTH_SHORT).show();
         String[] separated = result.split(":");
-        Log.e("result", separated[0]);
-        Log.e("result2", separated[1]);
         SharedPreferences preferences = ctx.getSharedPreferences("info", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("remember", "true");
@@ -130,9 +145,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
         editor.putString("fname", separated[1]);
         editor.putString("email", separated[0]);
         editor.putString("phnoe", separated[3]);
-//        editor.putString("image", "");
         editor.commit();
-
 
 
     }

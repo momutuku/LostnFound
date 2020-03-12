@@ -15,7 +15,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Reset"></activity>
+        <activity android:name=".Details"></activity>
+        <activity android:name=".Reset" />
         <activity android:name=".Displ" />
         <activity android:name=".Profile" />
         <activity android:name=".Dashboard" />
