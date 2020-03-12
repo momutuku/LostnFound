@@ -79,7 +79,7 @@ $router->map( 'POST', '/mobile/b2c/[*:phone]', function ($phone) {
 
 $match = $router->match();
 if( $match && is_callable( $match['target'] ) ) {
-	call_user_func_array( $match['target'], $match['params'] ); 
+	call_user_func_array( $match['target'], $match['params'] );
 } else {
 	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
 }
